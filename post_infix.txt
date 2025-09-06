@@ -1,0 +1,14 @@
+def infix_postfix(expression):
+    stack=[]
+    for ch in expression:
+        if ch.isalnum():
+            stack.append(ch)
+        else:
+            o1=stack.pop()
+            o2=stack.pop()
+            new=o2+ch+o1
+            stack.append(new)
+    return stack[0]
+n=input()
+print(infix_postfix(n))
+                

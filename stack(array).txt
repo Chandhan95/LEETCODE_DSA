@@ -1,0 +1,38 @@
+class Stack:
+    def __init__(self,size):
+        self.stack=[None]*size
+        self.top=-1
+        self.size=size
+    def push(self,x):
+        if self.top==self.size-1:
+            print("Stack Over Flow")
+            return
+        self.top+=1
+        self.stack[self.top]=x
+        return
+    def pop(self):
+        if self.top==-1:
+            print("Stack Underflow")
+            return None
+        val=self.stack[self.top]
+        self.top-=1
+        return val
+    def peek(self):
+        if self.top==-1:
+            print("Empty")
+            return
+        return self.stack[self.top]
+    def empty(self):
+        if self.top==-1:
+            return True
+        return False
+    def is_Full(self):
+        if self.top==self.size-1:
+            return True
+        return False
+s=Stack(3)
+s.push(10)
+s.push(11)
+s.push(12)
+print(s.is_Full())
+        

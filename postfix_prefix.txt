@@ -1,0 +1,12 @@
+def postfix_prefix(expression):
+    stack=[]
+    for ch in expression:
+        if ch.isalnum():
+            stack.append(ch)
+        else:
+            o1=stack.pop()
+            o2=stack.pop()
+            stack.append(ch+o2+o1)
+    return stack.pop()
+expression=input()
+print(postfix_prefix(expression))

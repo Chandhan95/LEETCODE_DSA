@@ -1,0 +1,23 @@
+def infix_postfix(expression):
+    stack=[]
+    ans=""
+    priority={'+':1,'-':1,'*':2,'/':2,'^':3}
+    for ch in expression:
+        if ch.isalnum():
+            ans+=ch
+        elif ch=='(':
+            stack.append(ch)
+        elif ch==')':
+            while stack and stack[-1]!='(':
+                ans+=stack.pop()
+            stack.pop()
+        else:
+            while stack and stack[-1]!='(' and (priority[ch]<=priority.get(stack[-1],0)):
+                ans+=stack.pop()
+            stack.append(ch)
+    while stack:
+        ans+=stack.pop()
+    return ans
+n=input()
+print(infix_postfix(n))
+                

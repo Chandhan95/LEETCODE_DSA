@@ -1,0 +1,15 @@
+def prefix_infix(expression):
+    stack = []
+    # scan right to left
+    for ch in expression[::-1]:
+        if ch.isalnum():
+            stack.append(ch)
+        else:
+            op1 = stack.pop()  # first operand
+            op2 = stack.pop()  # second operand
+            new = '(' + op1 + ch + op2 + ')'
+            stack.append(new)
+    return stack[-1]
+
+# Test
+print(prefix_infix('+-*+ABCDF'))
